@@ -199,16 +199,18 @@ function App() {
                 <Nfc size={14} /> DIGITAL BUSINESS CARD
               </span>
             </div>
-            <section className="identity">
-              <div className="identity-top">
-                <div className="avatar">
-                  {p.avatar ? (
-                    <img src={p.avatar} alt={p.name} />
-                  ) : (
-                    <span>{initials}</span>
-                  )}
-                  <span className="availability" aria-label="Active profile" />
-                </div>
+              <section className="identity">
+                <div className="identity-top">
+                  <div className="avatar">
+                    <span className="avatar-photo">
+                      {p.avatar ? (
+                        <img src={p.avatar} alt={p.name} />
+                      ) : (
+                        <span>{initials}</span>
+                      )}
+                    </span>
+                    <span className="availability" aria-label="Active profile" />
+                  </div>
                 <div className="identity-actions">
                   <button
                     className="icon-button"
