@@ -7,8 +7,8 @@
     "bio": "Engineering, technology, and the people behind great projects. Explore my work and find me around the web.",
     "location": "Engineering · Technology · Design",
     "accent": "#2563b8",
-    "avatar": "",
-    "cover": "",
+    "avatar": "./images/profile.png",
+    "cover": "./images/cover.jpg",
     "links": [
       {
         "id": "portfolio",
@@ -40,6 +40,14 @@
         "label": "GitHub",
         "value": "https://github.com/romito22",
         "description": "Code, experiments & open projects",
+        "visible": true
+      },
+      {
+        "id": "instagram",
+        "type": "instagram",
+        "label": "Instagram",
+        "value": "https://www.instagram.com/romonilodudes/",
+        "description": "Follow along · @romonilodudes",
         "visible": true
       }
     ]
