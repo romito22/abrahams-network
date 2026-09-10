@@ -14,7 +14,7 @@
         "id": "portfolio",
         "type": "link",
         "label": "My portfolio",
-        "value": "https://abraham-portfolio.pages.dev/",
+        "value": "https://abraham-portfolio.pages.dev/phone_view",
         "description": "Projects, experience & things I build",
         "visible": true
       },
