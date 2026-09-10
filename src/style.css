@@ -61,13 +61,13 @@ svg {
   flex-shrink: 0;
 }
 .topbar {
-  height: 94px;
+  height: 64px;
   max-width: 1320px;
   margin: auto;
   padding: 0 48px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 .brand {
   font-family: "Manrope", sans-serif;
@@ -117,7 +117,7 @@ svg {
   background: #dbe0e7;
 }
 .workspace {
-  padding: 12px 24px 64px;
+  padding: 0 24px 44px;
   display: flex;
   justify-content: center;
   gap: 48px;
@@ -133,7 +133,7 @@ svg {
   justify-content: center;
   align-items: center;
   gap: 8px;
-  margin: 0 0 24px;
+  margin: 12px 0;
 }
 .tabs {
   display: flex;
@@ -259,8 +259,8 @@ article {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 78px;
-  margin-bottom: 19px;
+  height: 72px;
+  margin-bottom: 2px;
 }
 .avatar {
   width: 112px;
@@ -344,7 +344,7 @@ article {
   line-height: 1.15;
   letter-spacing: -1.8px;
   font-weight: 650;
-  margin: 10px 0 11px;
+  margin: 4px 0 5px;
   overflow-wrap: anywhere;
 }
 .name-dot {
@@ -353,15 +353,15 @@ article {
 .role {
   font-size: 12px;
   font-weight: 550;
-  margin: 0 0 17px;
+  margin: 0 0 8px;
   color: #425064;
   line-height: 1.7;
 }
 .bio {
   font-size: 13px;
-  line-height: 1.8;
+  line-height: 1.55;
   color: #5d708b;
-  margin: 0 0 18px;
+  margin: 0 0 8px;
   white-space: pre-line;
   overflow-wrap: anywhere;
 }
@@ -392,7 +392,7 @@ article {
   filter: brightness(0.93);
 }
 .links-section {
-  padding: 31px 29px 0;
+  padding: 14px 29px 0;
 }
 .link-grid {
   display: grid;
@@ -412,7 +412,7 @@ article {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 .section-heading h2 {
   font-size: 13px;
@@ -433,8 +433,8 @@ article {
   background: #e9ecf1;
   border: 1px solid #dfe4ea;
   border-radius: 12px;
-  padding: 15px;
-  margin-bottom: 10px;
+  padding: 12px 14px;
+  margin-bottom: 8px;
   transition: background 0.15s;
 }
 .link-card:hover {
@@ -467,7 +467,7 @@ article {
   color: #607491;
 }
 .compact-link {
-  min-height: 64px;
+  min-height: 58px;
   margin-bottom: 0;
   padding: 12px;
   gap: 8px;
@@ -847,8 +847,8 @@ dialog .qr-warning {
     background: #f5f7fa;
   }
   .topbar {
-    height: 70px;
-    padding: 0 22px;
+    height: 58px;
+    padding: 0 16px;
   }
   .brand {
     font-size: 21px;
@@ -859,7 +859,7 @@ dialog .qr-warning {
     font-size: 22px;
   }
   .workspace {
-    padding: 3px 0 max(20px, env(safe-area-inset-bottom));
+    padding: 0 0 max(16px, env(safe-area-inset-bottom));
     display: block;
   }
   .profile-shell,
@@ -870,7 +870,7 @@ dialog .qr-warning {
   }
   .profile-navigation {
     padding: 0 22px;
-    margin-bottom: 18px;
+    margin: 10px 0;
   }
   .tabs {
     padding: 4px;
@@ -893,13 +893,13 @@ dialog .qr-warning {
     padding: 0 25px;
   }
   .links-section {
-    padding: 28px 25px 0;
+    padding: 12px 25px 0;
   }
   .identity h1 {
-    font-size: 34px;
+    font-size: 31px;
   }
   .identity-top {
-    margin-bottom: 15px;
+    margin-bottom: 2px;
   }
   .profile-footer {
     padding-bottom: 30px;
@@ -955,17 +955,8 @@ dialog .qr-warning {
 .cover {
   height: 160px;
 }
-.identity-top {
-  margin-bottom: 10px;
-}
-.identity .bio {
-  margin-bottom: 13px;
-}
-.links-section {
-  padding-top: 23px;
-}
 .link-card {
-  min-height: 76px;
+  min-height: 68px;
   background: #eef4fc;
   border-color: #dce7f5;
 }
@@ -987,10 +978,10 @@ dialog .qr-warning {
     font-size: 31px;
   }
   .topbar {
-    height: 72px;
+    height: 58px;
   }
   .link-card {
-    min-height: 74px;
+    min-height: 66px;
   }
   .tabs button {
     min-width: 102px;

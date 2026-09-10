@@ -149,45 +149,51 @@ function App() {
       </header>
       <div className="workspace">
         <main className="profile-shell">
-          <div className="profile-navigation">
-            <div className="tabs" role="tablist" aria-label="Profiles">
-              {profiles.map((x, i) => (
-                <button
-                  role="tab"
-                  id={`tab-${x.id}`}
-                  aria-controls="profile-panel"
-                  aria-selected={p.id === x.id}
-                  tabIndex={p.id === x.id ? 0 : -1}
-                  key={x.id}
-                  onClick={() => choose(x.id)}
-                  onKeyDown={(e) => {
-                    if (
-                      ["ArrowLeft", "ArrowRight", "Home", "End"].includes(e.key)
-                    ) {
-                      e.preventDefault();
-                      const n =
-                        e.key === "Home"
-                          ? 0
-                          : e.key === "End"
-                            ? profiles.length - 1
-                            : (i +
-                                (e.key === "ArrowRight" ? 1 : -1) +
-                                profiles.length) %
-                              profiles.length;
-                      choose(profiles[n].id);
-                      document.getElementById(`tab-${profiles[n].id}`)?.focus();
-                    }
-                  }}
-                >
-                  {x.tab}
-                </button>
-              ))}
+          {profiles.length > 1 && (
+            <div className="profile-navigation">
+              <div className="tabs" role="tablist" aria-label="Profiles">
+                {profiles.map((x, i) => (
+                  <button
+                    role="tab"
+                    id={`tab-${x.id}`}
+                    aria-controls="profile-panel"
+                    aria-selected={p.id === x.id}
+                    tabIndex={p.id === x.id ? 0 : -1}
+                    key={x.id}
+                    onClick={() => choose(x.id)}
+                    onKeyDown={(e) => {
+                      if (
+                        ["ArrowLeft", "ArrowRight", "Home", "End"].includes(
+                          e.key,
+                        )
+                      ) {
+                        e.preventDefault();
+                        const n =
+                          e.key === "Home"
+                            ? 0
+                            : e.key === "End"
+                              ? profiles.length - 1
+                              : (i +
+                                  (e.key === "ArrowRight" ? 1 : -1) +
+                                  profiles.length) %
+                                profiles.length;
+                        choose(profiles[n].id);
+                        document
+                          .getElementById(`tab-${profiles[n].id}`)
+                          ?.focus();
+                      }
+                    }}
+                  >
+                    {x.tab}
+                  </button>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
           <article
             id="profile-panel"
-            role="tabpanel"
-            aria-labelledby={`tab-${p.id}`}
+            role={profiles.length > 1 ? "tabpanel" : undefined}
+            aria-labelledby={profiles.length > 1 ? `tab-${p.id}` : undefined}
             key={p.id}
           >
             <div
@@ -259,7 +265,6 @@ function App() {
                   </button>
                 </div>
               </div>
-              <div className="eyebrow">YOUR WORLD, CONNECTED</div>
               <h1>
                 {p.name}
                 <span className="name-dot">.</span>
