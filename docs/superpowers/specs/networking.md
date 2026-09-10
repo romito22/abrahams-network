@@ -1,0 +1,5 @@
+# Plataforma personal NFC
+Aprobación del diseño recibida; ampliación solicitada: pestañas de perfiles según referencia adjunta.
+Página móvil con selector segmentado horizontal, portada, avatar, biografía, contacto vCard, enlaces, QR y compartir. Un propietario administra varios perfiles. Identificadores estables en query p permiten seleccionar el destino de cada NFC aunque se renombre el perfil. Editor permite crear, ordenar y eliminar perfiles y enlaces; fotos y color por perfil. Eliminar requiere confirmación y nunca elimina el último perfil.
+React + Vite. Firebase Auth Google y Firestore para publicación, reglas limitadas al propietario configurado. Modo local explícito si no hay credenciales; nunca presentarlo como publicado. Fotos comprimidas antes de guardar. Público lee solo datos publicados. Borradores locales separados de publicación. No inventar números, correos ni redes personales.
+Validación: build; vCard y URLs con pruebas; navegador a 390 y 320px, persistencia, pestañas, editor y QR.

@@ -1,0 +1,47 @@
+[
+  {
+    "id": "abraham",
+    "tab": "Personal",
+    "name": "Abraham Romo",
+    "role": "VDC / BIM Engineer · Civil Engineer",
+    "bio": "Engineering, technology, and the people behind great projects. Explore my work and find me around the web.",
+    "location": "Engineering · Technology · Design",
+    "accent": "#2563b8",
+    "avatar": "",
+    "cover": "",
+    "links": [
+      {
+        "id": "portfolio",
+        "type": "link",
+        "label": "My portfolio",
+        "value": "https://abraham-portfolio.pages.dev/",
+        "description": "Projects, experience & things I build",
+        "visible": true
+      },
+      {
+        "id": "linkedin",
+        "type": "linkedin",
+        "label": "LinkedIn",
+        "value": "https://www.linkedin.com/in/abrahamromo22/",
+        "description": "Let’s connect professionally",
+        "visible": true
+      },
+      {
+        "id": "youtube",
+        "type": "link",
+        "label": "YouTube",
+        "value": "https://youtube.com/@romo_civil_eng",
+        "description": "Engineering & ideas in motion",
+        "visible": true
+      },
+      {
+        "id": "github",
+        "type": "link",
+        "label": "GitHub",
+        "value": "https://github.com/romito22",
+        "description": "Code, experiments & open projects",
+        "visible": true
+      }
+    ]
+  }
+]
