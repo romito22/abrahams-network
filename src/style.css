@@ -312,6 +312,20 @@ article {
   gap: 8px;
   padding-top: 5px;
 }
+.contact-action {
+  min-width: 112px;
+  height: 39px;
+  padding: 0 13px;
+  border-radius: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 13px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+}
 .identity-actions .icon-button {
   width: 39px;
   height: 39px;
@@ -351,21 +365,6 @@ article {
   white-space: pre-line;
   overflow-wrap: anywhere;
 }
-.location {
-  font-size: 10px;
-  color: #5a6d88;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  margin: 0 0 25px;
-}
-.location > span {
-  width: 5px;
-  height: 5px;
-  background: #617591;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
 .save-contact {
   width: 100%;
   min-height: 53px;
@@ -392,28 +391,22 @@ article {
 .save-contact:hover {
   filter: brightness(0.93);
 }
-.contact-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 9px;
-  margin-top: 13px;
-}
-.contact-grid a {
-  min-height: 74px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  background: #e9ecf1;
-  border-radius: 11px;
-  text-align: center;
-  font-size: 10px;
-  padding: 10px 4px;
-  overflow-wrap: anywhere;
-}
 .links-section {
   padding: 31px 29px 0;
+}
+.link-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+.link-grid .link-card {
+  min-width: 0;
+}
+.featured-links {
+  margin-bottom: 10px;
+}
+.social-links {
+  margin-top: 10px;
 }
 .section-heading {
   display: flex;
@@ -472,6 +465,19 @@ article {
 }
 .link-card > svg {
   color: #607491;
+}
+.compact-link {
+  min-height: 64px;
+  margin-bottom: 0;
+  padding: 12px;
+  gap: 8px;
+}
+.compact-link .link-icon {
+  width: 25px;
+  height: 25px;
+}
+.compact-link .link-text strong {
+  font-size: 11px;
 }
 .empty-links {
   padding: 25px 15px;
@@ -946,12 +952,6 @@ dialog .qr-warning {
 .brand-name strong {
   font-weight: 800;
 }
-.contact-secondary {
-  background: #edf3fb;
-  color: #24589b;
-  border: 1px solid #d2e0f1;
-  min-height: 44px;
-}
 .cover {
   height: 160px;
 }
@@ -960,9 +960,6 @@ dialog .qr-warning {
 }
 .identity .bio {
   margin-bottom: 13px;
-}
-.identity .location {
-  margin-bottom: 17px;
 }
 .links-section {
   padding-top: 23px;

@@ -4,8 +4,8 @@
     "tab": "Personal",
     "name": "Abraham Romo",
     "role": "VDC / BIM Engineer · Civil Engineer",
-    "bio": "Engineering, technology, and the people behind great projects. Explore my work and find me around the web.",
-    "location": "Engineering · Technology · Design",
+    "bio": "Engineering, technology, entrepreneur.",
+    "location": "",
     "accent": "#2563b8",
     "avatar": "./images/profile.png",
     "cover": "./images/cover.jpg",
@@ -16,6 +16,14 @@
         "label": "My portfolio",
         "value": "https://abraham-portfolio.pages.dev/",
         "description": "Projects, experience & things I build",
+        "visible": true
+      },
+      {
+        "id": "resume",
+        "type": "resume",
+        "label": "My resume",
+        "value": "https://romito22.github.io/abrahams-network/Abraham-Romo-Resume.pdf",
+        "description": "Experience & credentials",
         "visible": true
       },
       {
@@ -35,14 +43,6 @@
         "visible": true
       },
       {
-        "id": "github",
-        "type": "link",
-        "label": "GitHub",
-        "value": "https://github.com/romito22",
-        "description": "Code, experiments & open projects",
-        "visible": true
-      },
-      {
         "id": "instagram",
         "type": "instagram",
         "label": "Instagram",
@@ -52,7 +52,7 @@
       },
       {
         "id": "facebook",
-        "type": "link",
+        "type": "facebook",
         "label": "Facebook",
         "value": "https://www.facebook.com/romonilodudes",
         "description": "Connect with me on Facebook",

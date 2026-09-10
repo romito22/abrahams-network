@@ -2,7 +2,6 @@ import React, { useEffect, useState, useRef } from "react";
 import { createRoot } from "react-dom/client";
 import {
   ArrowUpRight,
-  Plus,
   Download,
   Share2,
   QrCode,
@@ -12,6 +11,8 @@ import {
   Globe,
   Linkedin,
   Instagram,
+  Facebook,
+  FileText,
   MessageCircle,
   Layers,
   Copy,
@@ -27,12 +28,16 @@ const icons = {
   whatsapp: MessageCircle,
   linkedin: Linkedin,
   instagram: Instagram,
+  facebook: Facebook,
+  resume: FileText,
   link: Globe,
 };
 const types = {
   link: "Website",
   linkedin: "LinkedIn",
   instagram: "Instagram",
+  facebook: "Facebook",
+  resume: "Resume",
   whatsapp: "WhatsApp",
   phone: "Phone",
   email: "Email",
@@ -112,6 +117,15 @@ function App() {
   }
   const visible = p.links.filter((l) => l.visible && destination(l));
   const links = visible;
+  const featuredLinks = links.filter((l) =>
+    ["portfolio", "resume"].includes(l.id),
+  );
+  const compactSocialLinks = links.filter((l) =>
+    ["instagram", "facebook"].includes(l.id),
+  );
+  const standardLinks = links.filter(
+    (l) => !["portfolio", "resume", "instagram", "facebook"].includes(l.id),
+  );
   const initials = p.name
     .split(" ")
     .filter(Boolean)
@@ -199,19 +213,36 @@ function App() {
                 <Nfc size={14} /> DIGITAL BUSINESS CARD
               </span>
             </div>
-              <section className="identity">
-                <div className="identity-top">
-                  <div className="avatar">
-                    <span className="avatar-photo">
-                      {p.avatar ? (
-                        <img src={p.avatar} alt={p.name} />
-                      ) : (
-                        <span>{initials}</span>
-                      )}
-                    </span>
-                    <span className="availability" aria-label="Active profile" />
-                  </div>
+            <section className="identity">
+              <div className="identity-top">
+                <div className="avatar">
+                  <span className="avatar-photo">
+                    {p.avatar ? (
+                      <img src={p.avatar} alt={p.name} />
+                    ) : (
+                      <span>{initials}</span>
+                    )}
+                  </span>
+                  <span className="availability" aria-label="Active profile" />
+                </div>
                 <div className="identity-actions">
+                  <button
+                    className="contact-action"
+                    title="Download a contact file to add this person to your address book"
+                    onClick={() => {
+                      download(
+                        vcard(p),
+                        `${p.name}.vcf`,
+                        "text/vcard;charset=utf-8",
+                      );
+                      notify(
+                        "Contact file downloaded. Open it to add this profile to your address book.",
+                      );
+                    }}
+                  >
+                    <span>Contact</span>
+                    <Download size={17} />
+                  </button>
                   <button
                     className="icon-button"
                     aria-label="Show QR code"
@@ -235,29 +266,6 @@ function App() {
               </h1>
               {p.role && <p className="role">{p.role}</p>}
               {p.bio && <p className="bio">{p.bio}</p>}
-              {p.location && (
-                <p className="location">
-                  <span /> {p.location}
-                </p>
-              )}
-              <button
-                className="save-contact contact-secondary"
-                title="Download a contact file to add this person to your address book"
-                onClick={() => {
-                  download(
-                    vcard(p),
-                    `${p.name}.vcf`,
-                    "text/vcard;charset=utf-8",
-                  );
-                  notify(
-                    "Contact file downloaded. Open it to add this profile to your address book.",
-                  );
-                }}
-              >
-                <Plus size={21} />
-                Save contact
-                <Download size={18} />
-              </button>
             </section>
             <section className="links-section">
               <div className="section-heading">
@@ -265,27 +273,28 @@ function App() {
                 <span>{String(links.length).padStart(2, "0")}</span>
               </div>
               {links.length ? (
-                links.map((l, i) => {
-                  const Icon = icons[l.type] || Globe;
-                  return (
-                    <a
-                      className="link-card"
-                      key={l.id}
-                      href={destination(l)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <span className="link-icon">
-                        <Icon size={23} />
-                      </span>
-                      <span className="link-text">
-                        <strong>{l.label}</strong>
-                        <small>{l.description || types[l.type]}</small>
-                      </span>
-                      <ArrowUpRight size={19} />
-                    </a>
-                  );
-                })
+                <>
+                  <div className="link-grid featured-links">
+                    {featuredLinks.map((l) => {
+                      const Icon = icons[l.type] || Globe;
+                      return (
+                        <LinkCard key={l.id} link={l} Icon={Icon} compact />
+                      );
+                    })}
+                  </div>
+                  {standardLinks.map((l) => {
+                    const Icon = icons[l.type] || Globe;
+                    return <LinkCard key={l.id} link={l} Icon={Icon} />;
+                  })}
+                  <div className="link-grid social-links">
+                    {compactSocialLinks.map((l) => {
+                      const Icon = icons[l.type] || Globe;
+                      return (
+                        <LinkCard key={l.id} link={l} Icon={Icon} compact />
+                      );
+                    })}
+                  </div>
+                </>
               ) : (
                 <div className="empty-links">
                   <Layers size={23} />
@@ -349,6 +358,25 @@ function App() {
         </div>
       )}
     </div>
+  );
+}
+function LinkCard({ link, Icon, compact = false }) {
+  return (
+    <a
+      className={`link-card${compact ? " compact-link" : ""}`}
+      href={destination(link)}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <span className="link-icon">
+        <Icon size={compact ? 20 : 23} />
+      </span>
+      <span className="link-text">
+        <strong>{link.label}</strong>
+        {!compact && <small>{link.description || types[link.type]}</small>}
+      </span>
+      <ArrowUpRight size={compact ? 16 : 19} />
+    </a>
   );
 }
 createRoot(document.getElementById("root")).render(<App />);
