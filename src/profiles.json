@@ -49,6 +49,14 @@
         "value": "https://www.instagram.com/romonilodudes/",
         "description": "Follow along · @romonilodudes",
         "visible": true
+      },
+      {
+        "id": "facebook",
+        "type": "link",
+        "label": "Facebook",
+        "value": "https://www.facebook.com/romonilodudes",
+        "description": "Connect with me on Facebook",
+        "visible": true
       }
     ]
   }
